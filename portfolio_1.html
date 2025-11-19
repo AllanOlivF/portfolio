@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Allan França - Portfólio</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #0d0d0d;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    header {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: 3rem;
+      color: #8a2be2;
+      margin-bottom: 10px;
+      animation: fadeIn 1.5s ease;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      opacity: 0.8;
+      margin-bottom: 20px;
+      animation: fadeIn 2s ease;
+    }
+
+    .btns a {
+      text-decoration: none;
+      color: white;
+      border: 2px solid #8a2be2;
+      padding: 10px 20px;
+      border-radius: 8px;
+      margin: 10px;
+      display: inline-block;
+      transition: 0.3s;
+    }
+
+    .btns a:hover {
+      background: #8a2be2;
+    }
+
+    section {
+      padding: 60px 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .skill-card {
+      background: #1a1a1a;
+      border: 2px solid #8a2be2;
+      padding: 15px 25px;
+      border-radius: 10px;
+      transition: 0.3s;
+    }
+
+    .skill-card:hover {
+      transform: scale(1.1);
+      background: #8a2be2;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      opacity: 0.6;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Allan França</h1>
+    <h2>Desenvolvedor Front-End |</h2>
+    <div class="btns">
+      <a href="#sobre">Sobre Mim</a>
+      <a href="#contato">Contato</a>
+      <a href="https://github.com/AllanOlivF" target="_blank">GitHub</a>
+      <a href="https://www.linkedin.com/in/allan-fran%C3%A7a-14140124a/" target="_blank">LinkedIn</a>
+    </div>
+  </header>
+
+  <section id="sobre">
+    <h2>Sobre Mim</h2>
+    <p style="margin-top:10px; line-height:1.6;">
+      Olá, prazer meu nome é Allan, apaixonado por tecnologia e computadores, me descobri na área da tecnologia uns anos atrás e desde então venho me aprofundando
+      no aprendizado de desenvolvedor Front-End, atualmente estou cursando ADS na UNIP Araraquara.
+    </p>
+  </section>
+
+  <section>
+    <h2>Habilidades</h2>
+    <div class="skills" style="margin-top:20px;">
+      <div class="skill-card">HTML</div>
+      <div class="skill-card">CSS</div>
+      <div class="skill-card">JavaScript</div>
+      <div class="skill-card">React</div>
+      <div class="skill-card">Git & GitHub</div>
+    </div>
+  </section>
+
+  <section id="contato">
+    <h2>Contato</h2>
+    <p style="margin-top: 10px;">Entre em contato pelo e-mail: <b>allanoliveira032@outlook.com</b></p>
+  </section>
+
+  <footer>
+    <p>© 2025 Allan França — Todos os direitos reservados.</p>
+  </footer>
+
+</body>
+</html>
