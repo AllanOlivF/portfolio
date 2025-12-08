@@ -1,5 +1,7 @@
  <style>
-
+body {
+  background: red;
+}
     *{
       margin: 0;
       padding: 0;
@@ -160,5 +162,6 @@
       overflow: hidden;
       margin-bottom: 20px;
     }
+
 
   </style>
