@@ -5,7 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Allan França - Portfólio</title>
   <style>
-    * {
+
+    *{
       margin: 0;
       padding: 0;
       box-sizing: border-box;
@@ -13,30 +14,63 @@
     }
 
     body {
-      background: #0d0d0d;
-      color: #fff;
+      background: var(--bg);
+      color: var(--text);
       overflow-x: hidden;
+      transition: 0.3s;
+    }
+
+    :root{
+      --bg: #0d0d0d;
+      --text: #fff;
+      --card: #1a1a1a;
+      --primary: #8a2be2;
+    }
+
+    .light{
+      --bg: #f2f2f2;
+      --text: #111;
+      --card: #ffffff;
+      --primary: #7a1ed6;
     }
 
     header {
-      height: 100vh;
+      padding-top: 40px;
       display: flex;
       flex-direction: column;
-      justify-content: center;
+      justify-content: flex-start;
       align-items: center;
       text-align: center;
-      padding: 20px;
+      position: relative;
+    }
+
+    /* Botão Dark Mode */
+    #themeToggle{
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      padding: 10px 15px;
+      border-radius: 8px;
+      border: 2px solid var(--primary);
+      background: transparent;
+      color: var(--text);
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    #themeToggle:hover{
+      background: var(--primary);
     }
 
     h1 {
-      font-size: 3rem;
-      color: #8a2be2;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      color: var(--primary);
       margin-bottom: 10px;
       animation: fadeIn 1.5s ease;
     }
 
     h2 {
-      font-size: 1.5rem;
+      font-size: clamp(1.2rem, 3vw, 1.8rem);
       opacity: 0.8;
       margin-bottom: 20px;
       animation: fadeIn 2s ease;
@@ -44,8 +78,8 @@
 
     .btns a {
       text-decoration: none;
-      color: white;
-      border: 2px solid #8a2be2;
+      color: var(--text);
+      border: 2px solid var(--primary);
       padding: 10px 20px;
       border-radius: 8px;
       margin: 10px;
@@ -54,87 +88,189 @@
     }
 
     .btns a:hover {
-      background: #8a2be2;
+      background: var(--primary);
+      box-shadow: 0 0 10px var(--primary);
     }
 
     section {
       padding: 60px 20px;
       max-width: 900px;
       margin: auto;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: 0.6s;
     }
 
-    .skills {
+    .show{
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .skills, .projects{
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 15px;
+      gap: 20px;
     }
 
-    .skill-card {
-      background: #1a1a1a;
-      border: 2px solid #8a2be2;
-      padding: 15px 25px;
-      border-radius: 10px;
-      transition: 0.3s;
-    }
-
-    .skill-card:hover {
-      transform: scale(1.1);
-      background: #8a2be2;
-    }
-
-    footer {
-      text-align: center;
+    .skill-card, .project-card{
+      background: var(--card);
+      border: 2px solid var(--primary);
       padding: 20px;
-      opacity: 0.6;
+      border-radius: 12px;
+      transition: 0.3s;
+      width: 220px;
+      text-align: center;
+    }
+
+    .skill-card:hover, .project-card:hover{
+      transform: scale(1.05);
+      background: var(--primary);
+    }
+
+    .project-card a{
+      color: var(--text);
+      text-decoration: none;
+      font-weight: bold;
+      margin-top: 10px;
+      display: inline-block;
+    }
+
+    footer{
+      text-align: center;
+      padding: 25px;
+      opacity: 0.7;
     }
 
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
     }
+
+    img{
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+      margin-bottom: 25px;
+      box-shadow: 0 4px 15px rgba(77, 77, 77, 0.4);
+    }
+
+    /* Efeito digitando */
+    #typing{
+      color: var(--primary);
+      border-right: 2px solid var(--primary);
+      white-space: nowrap;
+      overflow: hidden;
+      margin-bottom: 20px;
+    }
+
   </style>
 </head>
 <body>
 
   <header>
+    <button id="themeToggle">Tema</button>
+
+    <img src="imagens/allan.png.jpg" alt="Foto Allan">
+
     <h1>Allan França</h1>
-    <h2>Desenvolvedor Front-End |</h2>
+    <h2 id="typing"></h2>
+
     <div class="btns">
       <a href="#sobre">Sobre Mim</a>
+      <a href="#projetos">Projetos</a>
       <a href="#contato">Contato</a>
       <a href="https://github.com/AllanOlivF" target="_blank">GitHub</a>
       <a href="https://www.linkedin.com/in/allan-fran%C3%A7a-14140124a/" target="_blank">LinkedIn</a>
+      <a href="curriculo.pdf" download>Download CV</a>
     </div>
   </header>
 
-  <section id="sobre">
-    <h2>Sobre Mim</h2>
-    <p style="margin-top:10px; line-height:1.6;">
-      Olá, prazer meu nome é Allan, apaixonado por tecnologia e computadores, me descobri na área da tecnologia uns anos atrás e desde então venho me aprofundando
-      no aprendizado de desenvolvedor Front-End, atualmente estou cursando ADS na UNIP Araraquara.
-    </p>
-  </section>
+  <main>
 
-  <section>
-    <h2>Habilidades</h2>
-    <div class="skills" style="margin-top:20px;">
-      <div class="skill-card">HTML</div>
-      <div class="skill-card">CSS</div>
-      <div class="skill-card">JavaScript</div>
-      <div class="skill-card">React</div>
-      <div class="skill-card">Git & GitHub</div>
-    </div>
-  </section>
+    <section id="sobre">
+      <h2>Sobre Mim</h2>
+      <p style="margin-top:10px; line-height:1.6;">
+        Olá, meu nome é Allan. Tenho grande interesse por tecnologia e, nos últimos anos, direcionei esse interesse para a área de desenvolvimento Front-End. Atualmente curso Análise e Desenvolvimento de Sistemas na UNIP Araraquara e estou estudando HTML, CSS, JavaScript e React, além de explorar ferramentas como Python para ampliar meu repertório técnico. No momento, trabalho na Rádio Morada do Sol, onde atuo com redes e hardware, o que tem me dado uma boa base prática em infraestrutura e suporte técnico.
+      </p>
+    </section>
 
-  <section id="contato">
-    <h2>Contato</h2>
-    <p style="margin-top: 10px;">Entre em contato pelo e-mail: <b>allanoliveira032@outlook.com</b></p>
-  </section>
+    <section id="projetos">
+      <h2>Projetos</h2>
+      <div class="projects">
+        <div class="project-card">
+          <h3>Projeto 1</h3>
+          <p>Descrição breve do projeto.</p>
+          <a href="#">Ver Projeto</a>
+        </div>
 
-  <footer>
-    <p>© 2025 Allan França — Todos os direitos reservados.</p>
-  </footer>
+        <div class="project-card">
+          <h3>Projeto 2</h3>
+          <p>Descrição breve do projeto.</p>
+          <a href="#">Ver Projeto</a>
+        </div>
+
+        <div class="project-card">
+          <h3>Projeto 3</h3>
+          <p>Descrição breve do projeto.</p>
+          <a href="#">Ver Projeto</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="contato">
+      <h2>Contato</h2>
+      <p style="margin-top: 10px;">E-mail: <b>allanoliveira032@outlook.com</b></p>
+      <p style="margin-top: 10px;">Telefone: <b>016 9 9642-6161</b></p>
+    </section>
+
+  </main>
+
+
+  <script>
+
+    // --- Efeito digitando ---
+    const texto = "Front-End Developer";
+    const typing = document.getElementById("typing");
+    let i = 0;
+
+    function typeEffect(){
+      if(i < texto.length){
+        typing.innerHTML += texto.charAt(i);
+        i++;
+        setTimeout(typeEffect, 90);
+      }
+    }
+
+    typeEffect();
+
+
+    // --- Dark / Light Mode ---
+    const toggle = document.getElementById("themeToggle");
+    toggle.addEventListener("click", () =>{
+      document.body.classList.toggle("light");
+    });
+
+
+    // --- Animação ao rolar ---
+    const sections = document.querySelectorAll("section");
+
+    function showOnScroll(){
+      const trigger = window.innerHeight * 0.85;
+
+      sections.forEach(sec =>{
+        const top = sec.getBoundingClientRect().top;
+        if(top < trigger){ sec.classList.add("show"); }
+      });
+    }
+
+    window.addEventListener("scroll", showOnScroll);
+    showOnScroll();
+
+  </script>
 
 </body>
 </html>
